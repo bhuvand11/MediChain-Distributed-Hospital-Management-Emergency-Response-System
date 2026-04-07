@@ -4,94 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f3d9030c-85f8-4a21-a22b-a51b7ac96d7f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.agent.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/medichain/api_gateway/ApiGatewayApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/test/java/com/medichain/api_gateway/ApiGatewayApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/medichain/auth_service/AuthServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/test/java/com/medichain/auth_service/AuthServiceApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bed-service/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bed-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bed-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bed-service/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bed-service/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bed-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bed-service/src/main/java/com/medichain/bed_service/BedServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bed-service/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bed-service/src/test/java/com/medichain/bed_service/BedServiceApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/src/main/java/com/medichain/config_server/ConfigServerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/src/test/java/com/medichain/config_server/ConfigServerApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctor-service/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctor-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctor-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctor-service/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctor-service/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctor-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctor-service/src/main/java/com/medichain/doctor_service/DoctorServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctor-service/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctor-service/src/test/java/com/medichain/doctor_service/DoctorServiceApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eureka-server/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eureka-server/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eureka-server/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eureka-server/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eureka-server/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eureka-server/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eureka-server/src/main/java/com/medichain/eureka_server/EurekaServerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eureka-server/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eureka-server/src/test/java/com/medichain/eureka_server/EurekaServerApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/medichain/notification_service/NotificationServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/src/test/java/com/medichain/notification_service/NotificationServiceApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patient-service/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patient-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patient-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patient-service/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patient-service/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patient-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medichain/patient_service/PatientServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patient-service/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patient-service/src/test/java/com/medichain/patient_service/PatientServiceApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pharmacy-service/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pharmacy-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pharmacy-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pharmacy-service/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pharmacy-service/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pharmacy-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pharmacy-service/src/main/java/com/medichain/pharmacy_service/PharmacyServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pharmacy-service/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pharmacy-service/src/test/java/com/medichain/pharmacy_service/PharmacyServiceApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f3d9030c-85f8-4a21-a22b-a51b7ac96d7f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -105,21 +18,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "bhuvand11"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;bhuvand11&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/bhuvand11/MediChain-Distributed-Hospital-Management-Emergency-Response-System.git",
-    "accountId": "2940b3f6-b021-4a85-b3b1-5c966876f272"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/bhuvand11/MediChain-Distributed-Hospital-Management-Emergency-Response-System.git&quot;,
+    &quot;accountId&quot;: &quot;2940b3f6-b021-4a85-b3b1-5c966876f272&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="3ByxlMvHev6u3aHzVXLS0unCIdU" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -128,15 +41,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="medichain-parent" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="medichain-parent" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="MediChain-Distributed-Hospital-Management-Emergency-Response-System" />
       <option name="ENV_FILES" value="" />

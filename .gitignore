@@ -15,3 +15,7 @@ buildNumber.properties
 .project
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
+
+**/src/main/resources/application.yaml
+**/src/main/resources/application.yml
+**/src/main/resources/configs/

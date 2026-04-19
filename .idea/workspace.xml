@@ -5,20 +5,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3d9030c-85f8-4a21-a22b-a51b7ac96d7f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/medichain/auth_service/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/medichain/auth_service/controller/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/medichain/auth_service/dto/AuthResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/medichain/auth_service/dto/LoginRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/medichain/auth_service/dto/RegisterRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/medichain/auth_service/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/medichain/auth_service/enums/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/medichain/auth_service/filter/JwtAuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/medichain/auth_service/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/medichain/auth_service/service/AuthService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/medichain/auth_service/service/JwtService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bed-service/src/main/java/com/medichain/bed_service/config/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bed-service/src/main/java/com/medichain/bed_service/controller/BedController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bed-service/src/main/java/com/medichain/bed_service/dto/BedRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bed-service/src/main/java/com/medichain/bed_service/dto/BedResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bed-service/src/main/java/com/medichain/bed_service/entity/Bed.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bed-service/src/main/java/com/medichain/bed_service/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bed-service/src/main/java/com/medichain/bed_service/exception/ResourceNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bed-service/src/main/java/com/medichain/bed_service/repository/BedRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bed-service/src/main/java/com/medichain/bed_service/service/BedService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doctor-service/src/main/java/com/medichain/doctor_service/controller/DoctorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doctor-service/src/main/java/com/medichain/doctor_service/dto/DoctorRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doctor-service/src/main/java/com/medichain/doctor_service/dto/DoctorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doctor-service/src/main/java/com/medichain/doctor_service/dto/ShiftRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doctor-service/src/main/java/com/medichain/doctor_service/entity/Doctor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doctor-service/src/main/java/com/medichain/doctor_service/entity/Shift.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doctor-service/src/main/java/com/medichain/doctor_service/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doctor-service/src/main/java/com/medichain/doctor_service/exception/ResourceNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doctor-service/src/main/java/com/medichain/doctor_service/repository/DoctorRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doctor-service/src/main/java/com/medichain/doctor_service/repository/ShiftRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doctor-service/src/main/java/com/medichain/doctor_service/service/DoctorService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medichain/patient_service/config/FeignConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medichain/patient_service/controller/PatientController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medichain/patient_service/dto/MedicalHistoryRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medichain/patient_service/dto/PatientRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medichain/patient_service/dto/PatientResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medichain/patient_service/entity/MedicalHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medichain/patient_service/entity/Patient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medichain/patient_service/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medichain/patient_service/exception/ResourceNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medichain/patient_service/repository/MedicalHistoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medichain/patient_service/repository/PatientRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medichain/patient_service/service/PatientService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pharmacy-service/src/main/java/com/medichain/pharmacy_service/controller/PharmacyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pharmacy-service/src/main/java/com/medichain/pharmacy_service/dto/MedicineRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pharmacy-service/src/main/java/com/medichain/pharmacy_service/dto/MedicineResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pharmacy-service/src/main/java/com/medichain/pharmacy_service/dto/PrescriptionRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pharmacy-service/src/main/java/com/medichain/pharmacy_service/dto/PrescriptionResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pharmacy-service/src/main/java/com/medichain/pharmacy_service/entity/Medicine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pharmacy-service/src/main/java/com/medichain/pharmacy_service/entity/Prescription.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pharmacy-service/src/main/java/com/medichain/pharmacy_service/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pharmacy-service/src/main/java/com/medichain/pharmacy_service/exception/ResourceNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pharmacy-service/src/main/java/com/medichain/pharmacy_service/repository/MedicineRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pharmacy-service/src/main/java/com/medichain/pharmacy_service/repository/PrescriptionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pharmacy-service/src/main/java/com/medichain/pharmacy_service/service/PharmacyService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,6 +64,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="package-info" />
         <option value="Class" />
       </list>
     </option>
@@ -72,8 +103,12 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Application.ApiGatewayApplication.executor": "Run",
     "Application.AuthServiceApplication.executor": "Run",
+    "Application.BedServiceApplication.executor": "Run",
     "Application.ConfigServerApplication.executor": "Run",
+    "Application.DoctorServiceApplication.executor": "Run",
     "Application.EurekaServerApplication.executor": "Run",
+    "Application.PatientServiceApplication.executor": "Run",
+    "Application.PharmacyServiceApplication.executor": "Run",
     "Maven.medichain-parent [clean].executor": "Run",
     "Maven.medichain-parent [install].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",

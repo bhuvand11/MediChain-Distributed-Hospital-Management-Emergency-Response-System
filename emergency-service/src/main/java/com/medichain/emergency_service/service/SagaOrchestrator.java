@@ -1,5 +1,7 @@
 package com.medichain.emergency_service.service;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.retry.annotation.Retry;
 import com.medichain.emergency_service.dto.BedAssignmentEvent;
 import com.medichain.emergency_service.dto.DoctorAssignmentEvent;
 import com.medichain.emergency_service.dto.EmergencyCreatedEvent;
@@ -24,8 +26,8 @@ import java.util.UUID;
 public class SagaOrchestrator {
 
     private final EmergencyRepository emergencyRepository;
-    private final BedServiceClient bedServiceClient;
-    private final DoctorServiceClient doctorServiceClient;
+    private final BedServiceWrapper bedServiceWrapper;
+    private final DoctorServiceWrapper doctorServiceWrapper;
     private final KafkaTemplate<String, Object> kafkaTemplate;
 
     @KafkaListener(topics = "emergency.created",
@@ -50,17 +52,17 @@ public class SagaOrchestrator {
         // Step 1 — Find and reserve nearest bed
         try {
             String wardType = getWardTypeForIncident(event.getIncidentType());
-            String hospitalName = bedServiceClient
+            String hospitalName = bedServiceWrapper
                     .findNearestHospitalWithBed(wardType);
 
-            List<Object> availableBeds = (List<Object>) bedServiceClient
+            List<Object> availableBeds = (List<Object>) bedServiceWrapper
                     .getAvailableBedsByHospital(hospitalName);
 
             if (!availableBeds.isEmpty()) {
                 Map<String, Object> bed = (Map<String, Object>) availableBeds.get(0);
                 assignedBedId = Long.valueOf(bed.get("id").toString());
 
-                bedServiceClient.updateBedStatus(
+                bedServiceWrapper.updateBedStatus(
                         assignedBedId,
                         "OCCUPIED",
                         event.getPatientId(),
@@ -90,7 +92,7 @@ public class SagaOrchestrator {
 
         // Step 2 — Assign available doctor
         try {
-            List<Object> availableDoctors = doctorServiceClient.getAvailableDoctors();
+            List<Object> availableDoctors = doctorServiceWrapper.getAvailableDoctors();
 
             if (!availableDoctors.isEmpty()) {
                 Map<String, Object> doctor =
@@ -98,7 +100,7 @@ public class SagaOrchestrator {
                 assignedDoctorId = Long.valueOf(doctor.get("id").toString());
                 String doctorName = doctor.get("fullName").toString();
 
-                doctorServiceClient.toggleDoctorAvailability(assignedDoctorId);
+                doctorServiceWrapper.toggleDoctorAvailability(assignedDoctorId);
 
                 emergency.setAssignedDoctorId(assignedDoctorId);
                 emergency.setAssignedDoctorName(doctorName);
@@ -136,7 +138,7 @@ public class SagaOrchestrator {
             // Compensating transaction — rollback bed if doctor failed
             if (bedAssigned && assignedBedId != null) {
                 try {
-                    bedServiceClient.updateBedStatus(
+                    bedServiceWrapper.updateBedStatus(
                             assignedBedId, "AVAILABLE", null, null);
                     log.info("Compensating transaction: bed {} released",
                             assignedBedId);
@@ -159,5 +161,14 @@ public class SagaOrchestrator {
             case "MATERNITY" -> "MATERNITY";
             default -> "GENERAL";
         };
+    }
+    private String bedServiceFallback(Exception e) {
+        log.error("Bed service circuit breaker opened: {}", e.getMessage());
+        return null;
+    }
+
+    private String doctorServiceFallback(Exception e) {
+        log.error("Doctor service circuit breaker opened: {}", e.getMessage());
+        return null;
     }
 }

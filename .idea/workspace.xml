@@ -5,13 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3d9030c-85f8-4a21-a22b-a51b7ac96d7f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/medichain/notification_service/config/KafkaConsumerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/medichain/notification_service/consumer/NotificationConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/medichain/notification_service/dto/BedAssignmentEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/medichain/notification_service/dto/DoctorAssignmentEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/medichain/notification_service/dto/EmergencyCreatedEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/medichain/notification_service/service/NotificationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/emergency-service/src/main/java/com/medichain/emergency_service/service/BedServiceWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/emergency-service/src/main/java/com/medichain/emergency_service/service/DoctorServiceWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bed-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bed-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doctor-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/doctor-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/emergency-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/emergency-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/emergency-service/src/main/java/com/medichain/emergency_service/service/SagaOrchestrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/emergency-service/src/main/java/com/medichain/emergency_service/service/SagaOrchestrator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacy-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacy-service/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,29 +67,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.ApiGatewayApplication.executor": "Run",
-    "Application.AuthServiceApplication.executor": "Run",
-    "Application.BedServiceApplication.executor": "Run",
-    "Application.ConfigServerApplication.executor": "Run",
-    "Application.DoctorServiceApplication.executor": "Run",
-    "Application.EmergencyServiceApplication.executor": "Run",
-    "Application.EurekaServerApplication.executor": "Run",
-    "Application.NotificationServiceApplication.executor": "Run",
-    "Application.PatientServiceApplication.executor": "Run",
-    "Application.PharmacyServiceApplication.executor": "Run",
-    "Maven.medichain-parent [clean].executor": "Run",
-    "Maven.medichain-parent [install].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/bhuva/Downloads/sb-docker/sb-docker",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.ApiGatewayApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AuthServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.BedServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ConfigServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.DoctorServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.EmergencyServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.EurekaServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.NotificationServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PatientServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PharmacyServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.medichain-parent [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.medichain-parent [install].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/bhuva/Downloads/sb-docker/sb-docker&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="medichain-parent" />

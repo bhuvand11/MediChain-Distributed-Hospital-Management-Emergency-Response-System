@@ -9,7 +9,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
@@ -113,5 +115,21 @@ public class BedService {
                 .createdAt(bed.getCreatedAt())
                 .updatedAt(bed.getUpdatedAt())
                 .build();
+    }
+
+    public List<Map<String, Object>> getAvailableBedsSimple(String hospitalName) {
+        return bedRepository
+                .findByHospitalNameAndStatus(hospitalName, "AVAILABLE")
+                .stream()
+                .map(bed -> {
+                    Map<String, Object> simple = new HashMap<>();
+                    simple.put("id", bed.getId());
+                    simple.put("bedNumber", bed.getBedNumber());
+                    simple.put("wardType", bed.getWardType());
+                    simple.put("hospitalName", bed.getHospitalName());
+                    simple.put("status", bed.getStatus());
+                    return simple;
+                })
+                .collect(Collectors.toList());
     }
 }

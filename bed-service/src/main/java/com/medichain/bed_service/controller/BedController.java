@@ -9,7 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/beds")
@@ -68,5 +70,11 @@ public class BedController {
     public ResponseEntity<String> findNearestHospitalWithBed(
             @PathVariable String wardType) {
         return ResponseEntity.ok(bedService.findNearestHospitalWithBed(wardType));
+    }
+
+    @GetMapping("/available/{hospitalName}/simple")
+    public ResponseEntity<List<Map<String, Object>>> getAvailableBedsSimple(
+            @PathVariable String hospitalName) {
+        return ResponseEntity.ok(bedService.getAvailableBedsSimple(hospitalName));
     }
 }

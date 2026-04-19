@@ -5,28 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3d9030c-85f8-4a21-a22b-a51b7ac96d7f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/bed-service/src/main/java/com/medichain/bed_service/config/JacksonConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/emergency-service/src/main/java/com/medichain/emergency_service/config/KafkaConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/emergency-service/src/main/java/com/medichain/emergency_service/controller/EmergencyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/emergency-service/src/main/java/com/medichain/emergency_service/dto/BedAssignmentEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/emergency-service/src/main/java/com/medichain/emergency_service/dto/DoctorAssignmentEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/emergency-service/src/main/java/com/medichain/emergency_service/dto/EmergencyCreatedEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/emergency-service/src/main/java/com/medichain/emergency_service/dto/EmergencyRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/emergency-service/src/main/java/com/medichain/emergency_service/dto/EmergencyResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/emergency-service/src/main/java/com/medichain/emergency_service/entity/Emergency.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/emergency-service/src/main/java/com/medichain/emergency_service/enums/EmergencyStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/emergency-service/src/main/java/com/medichain/emergency_service/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/emergency-service/src/main/java/com/medichain/emergency_service/exception/ResourceNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/emergency-service/src/main/java/com/medichain/emergency_service/feign/BedServiceClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/emergency-service/src/main/java/com/medichain/emergency_service/feign/DoctorServiceClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/emergency-service/src/main/java/com/medichain/emergency_service/repository/EmergencyRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/emergency-service/src/main/java/com/medichain/emergency_service/service/EmergencyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/emergency-service/src/main/java/com/medichain/emergency_service/service/SagaOrchestrator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/medichain/notification_service/config/KafkaConsumerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/medichain/notification_service/consumer/NotificationConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/medichain/notification_service/dto/BedAssignmentEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/medichain/notification_service/dto/DoctorAssignmentEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/medichain/notification_service/dto/EmergencyCreatedEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/medichain/notification_service/service/NotificationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bed-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bed-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bed-service/src/main/java/com/medichain/bed_service/controller/BedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bed-service/src/main/java/com/medichain/bed_service/controller/BedController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bed-service/src/main/java/com/medichain/bed_service/service/BedService.java" beforeDir="false" afterPath="$PROJECT_DIR$/bed-service/src/main/java/com/medichain/bed_service/service/BedService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/emergency-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/emergency-service/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +70,7 @@
     "Application.DoctorServiceApplication.executor": "Run",
     "Application.EmergencyServiceApplication.executor": "Run",
     "Application.EurekaServerApplication.executor": "Run",
+    "Application.NotificationServiceApplication.executor": "Run",
     "Application.PatientServiceApplication.executor": "Run",
     "Application.PharmacyServiceApplication.executor": "Run",
     "Maven.medichain-parent [clean].executor": "Run",

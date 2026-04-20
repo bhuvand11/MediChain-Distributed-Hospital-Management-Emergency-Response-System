@@ -1,0 +1,6 @@
+CREATE DATABASE IF NOT EXISTS medichain_auth;
+CREATE DATABASE IF NOT EXISTS medichain_patient;
+CREATE DATABASE IF NOT EXISTS medichain_doctor;
+CREATE DATABASE IF NOT EXISTS medichain_bed;
+CREATE DATABASE IF NOT EXISTS medichain_pharmacy;
+CREATE DATABASE IF NOT EXISTS medichain_emergency;

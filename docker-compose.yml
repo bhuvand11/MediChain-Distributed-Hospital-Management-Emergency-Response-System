@@ -1,0 +1,266 @@
+version: '3.8'
+
+services:
+
+  # ─── Infrastructure ───────────────────────────────────────────
+
+  mysql:
+    image: mysql:8.0
+    container_name: medichain-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: medichain
+      MYSQL_PASSWORD: medichain123
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - medichain-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  redis:
+    image: redis:alpine
+    container_name: medichain-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - medichain-network
+
+  kafka:
+    image: confluentinc/cp-kafka:7.5.0
+    container_name: medichain-kafka
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: true
+      CLUSTER_ID: lLLDPe3PQ7SssPCNZhcORg
+    ports:
+      - "9092:9092"
+    networks:
+      - medichain-network
+    healthcheck:
+      test: [ "CMD", "kafka-topics", "--bootstrap-server", "localhost:9092", "--list" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: medichain-zipkin
+    ports:
+      - "9411:9411"
+    networks:
+      - medichain-network
+
+  # ─── Core Services ────────────────────────────────────────────
+
+  config-server:
+    build: ./config-server
+    container_name: medichain-config-server
+    ports:
+      - "8888:8888"
+    networks:
+      - medichain-network
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8888/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  eureka-server:
+    build: ./eureka-server
+    container_name: medichain-eureka-server
+    ports:
+      - "8761:8761"
+    depends_on:
+      config-server:
+        condition: service_healthy
+    environment:
+      SPRING_CLOUD_CONFIG_URI: http://config-server:8888
+      MANAGEMENT_ZIPKIN_TRACING_ENDPOINT: http://zipkin:9411/api/v2/spans
+    networks:
+      - medichain-network
+    healthcheck:
+      test: [ "CMD", "wget", "-qO-", "http://localhost:8761/actuator/health" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  api-gateway:
+    build: ./api-gateway
+    container_name: medichain-api-gateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+      SPRING_CLOUD_CONFIG_URI: http://config-server:8888
+      MANAGEMENT_ZIPKIN_TRACING_ENDPOINT: http://zipkin:9411/api/v2/spans
+    networks:
+      - medichain-network
+
+  auth-service:
+    build: ./auth-service
+    container_name: medichain-auth-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+      mysql:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/medichain_auth
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+      SPRING_CLOUD_CONFIG_URI: http://config-server:8888
+      MANAGEMENT_ZIPKIN_TRACING_ENDPOINT: http://zipkin:9411/api/v2/spans
+    networks:
+      - medichain-network
+
+  patient-service:
+    build: ./patient-service
+    container_name: medichain-patient-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+      mysql:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/medichain_patient
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+      SPRING_CLOUD_CONFIG_URI: http://config-server:8888
+      MANAGEMENT_ZIPKIN_TRACING_ENDPOINT: http://zipkin:9411/api/v2/spans
+    networks:
+      - medichain-network
+
+  doctor-service:
+    build: ./doctor-service
+    container_name: medichain-doctor-service
+    ports:
+      - "8083:8083"
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+      mysql:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/medichain_doctor
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+      SPRING_CLOUD_CONFIG_URI: http://config-server:8888
+      MANAGEMENT_ZIPKIN_TRACING_ENDPOINT: http://zipkin:9411/api/v2/spans
+    networks:
+      - medichain-network
+
+  bed-service:
+    build: ./bed-service
+    container_name: medichain-bed-service
+    ports:
+      - "8084:8084"
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/medichain_bed
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_DATA_REDIS_HOST: redis
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+      SPRING_CLOUD_CONFIG_URI: http://config-server:8888
+      MANAGEMENT_ZIPKIN_TRACING_ENDPOINT: http://zipkin:9411/api/v2/spans
+    networks:
+      - medichain-network
+
+  pharmacy-service:
+    build: ./pharmacy-service
+    container_name: medichain-pharmacy-service
+    ports:
+      - "8085:8085"
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+      mysql:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/medichain_pharmacy
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+      SPRING_CLOUD_CONFIG_URI: http://config-server:8888
+      MANAGEMENT_ZIPKIN_TRACING_ENDPOINT: http://zipkin:9411/api/v2/spans
+    networks:
+      - medichain-network
+
+  emergency-service:
+    build: ./emergency-service
+    container_name: medichain-emergency-service
+    ports:
+      - "8086:8086"
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+      mysql:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/medichain_emergency
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+      SPRING_CLOUD_CONFIG_URI: http://config-server:8888
+      MANAGEMENT_ZIPKIN_TRACING_ENDPOINT: http://zipkin:9411/api/v2/spans
+    networks:
+      - medichain-network
+
+  notification-service:
+    build: ./notification-service
+    container_name: medichain-notification-service
+    ports:
+      - "8087:8087"
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    environment:
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+      SPRING_CLOUD_CONFIG_URI: http://config-server:8888
+      MANAGEMENT_ZIPKIN_TRACING_ENDPOINT: http://zipkin:9411/api/v2/spans
+    networks:
+      - medichain-network
+
+networks:
+  medichain-network:
+    driver: bridge
+
+volumes:
+  mysql-data:

@@ -5,7 +5,7 @@ import com.medichain.notification_service.dto.DoctorAssignmentEvent;
 import com.medichain.notification_service.dto.EmergencyCreatedEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-
+//KAFKA producer-consumer workflow
 @Service
 @Slf4j
 public class NotificationService {

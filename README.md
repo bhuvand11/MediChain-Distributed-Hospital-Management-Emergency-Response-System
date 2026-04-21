@@ -826,7 +826,7 @@ Each microservice runs in its own process with its own connection pool and threa
 | Name | Role |
 |---|---|
 | Bhuvan Devarakonda | Infrastructure, Security, Emergency Service, Saga Pattern |
-| Author Two | Patient, Doctor, Bed, Pharmacy Services |
+| Rishika Desai | Patient, Doctor, Bed, Pharmacy Services |
 | Nirmit Desai | Notification Service, Resilience, Docker, CI/CD |
 
 ---

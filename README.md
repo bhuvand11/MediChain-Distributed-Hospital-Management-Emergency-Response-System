@@ -827,7 +827,7 @@ Each microservice runs in its own process with its own connection pool and threa
 |---|---|
 | Author One | Infrastructure, Security, Emergency Service, Saga Pattern |
 | Author Two | Patient, Doctor, Bed, Pharmacy Services |
-| Author Three | Notification Service, Resilience, Docker, CI/CD |
+| Nirmit Desai | Notification Service, Resilience, Docker, CI/CD |
 
 ---
 
